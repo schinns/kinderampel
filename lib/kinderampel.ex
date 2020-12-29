@@ -11,7 +11,7 @@ defmodule Kinderampel do
   """
   require Logger
 
-  @check_interval 2000
+  @check_interval 15000
 
   def start(_type, _args) do
     spawn(fn -> check_time() end)
@@ -70,11 +70,12 @@ defmodule Kinderampel do
     Circuits.GPIO.close(gpio)
   end
 
-  defp toggle pin do
+  def toggle pin do
     {:ok, gpio} = Circuits.GPIO.open(pin, :output)
     case Circuits.GPIO.read(gpio) do
       1 -> Circuits.GPIO.write(gpio, 0)
       0 -> Circuits.GPIO.write(gpio, 1)
     end
+    Circuits.GPIO.close(gpio)
   end
 end
