@@ -31,7 +31,7 @@ defmodule Kinderampel.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      mod: {Kinderampel.Application, []},
+      mod: {Kinderampel, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
