@@ -30,6 +30,10 @@ defmodule Kinderampel do
       {7, 30} -> green_on_and_yellow_off()
       # at 10:00 AM EST turn off green
       {15, 0} -> turn_off(11)
+      # at 3:31 PM EST easter egg
+      {20, 31} -> loop_lights([9, 10, 11])
+      # clean up
+      {20, 32} -> turn_off_all([9, 10, 11])
       _ -> Logger.debug("no match")
     end
     :timer.sleep(@check_interval)
@@ -77,5 +81,22 @@ defmodule Kinderampel do
       0 -> Circuits.GPIO.write(gpio, 1)
     end
     Circuits.GPIO.close(gpio)
+  end
+
+  def loop_lights(pins) do
+    [head_pin | tail_pins] = pins
+    last_pin = List.last(pins)
+    turn_on(head_pin)
+    turn_off(last_pin)
+    :timer.sleep(750)
+    loop_lights(tail_pins ++ [head_pin])
+  end
+
+  def turn_off_all(pins) do
+    if length(pins) != 0 do
+      [head_pin| tail_pins] = pins
+      turn_off(head_pin)
+      turn_off_all(tail_pins)
+    end
   end
 end
