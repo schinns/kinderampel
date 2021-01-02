@@ -5,10 +5,11 @@ Kid friendly alarm clock resembling a traffic light.
 ![alarm-clock-looping](https://user-images.githubusercontent.com/21044999/103445861-1a25b580-4c47-11eb-943f-b2163caa2044.gif)
 
 ## To Run:
-1. Set target e.g. `export MIX_TARGET=rpi0`
-2. Install dependecies `mix deps.get`
-3. Create firmware bundle `mix firmware`
-4. To create a bootable SD Card `mix burn`
+1. Clone the repo and `cd kinderampel`
+2. Set target e.g. `export MIX_TARGET=rpi0`
+3. Install dependecies `mix deps.get`
+4. Create firmware bundle `mix firmware`
+5. To create a bootable SD Card `mix burn`
 
 ## Over the air update
 1. Set environment variables `SSID` and `PSK` to configure WiFi connection
@@ -19,7 +20,7 @@ Kid friendly alarm clock resembling a traffic light.
 6. Once you've identified the correct ipaddress you should be able to run `ssh ${ipaddress}`
 7. After compiling your firmware, you can run `upload.sh ${ipaddress}` to deploy updates over the air
 
-Note: If you are configuring correct SSID and password to a WiFinetwork, but your device is failing to connect to it it may due to the type of WiFi network. It may be that the wifi network may be 5GHz and your device is only compatible with 2.4GHz. 
+Note: If you are configuring correct SSID and password to a WiFi network, but your device is failing to connect to it it may due to the type of WiFi network. It may be that the wifi network may be 5GHz and your device is only compatible with 2.4GHz. 
 
 ## Hardware Used
 - [Raspberry Pi Zero WH](https://www.adafruit.com/product/3708)
