@@ -11,18 +11,21 @@ Kid friendly alarm clock resembling a traffic light.
 4. To create a bootable SD Card `mix burn`
 
 ## Over the air update
-1. Set environment variables `SSID` and `PSK` to configure wifi connection
+1. Set environment variables `SSID` and `PSK` to configure WiFi connection
 2. Connect the raspberry pi zero via the gadget connection to the host
 3. Run `ssh nerves.local`
-4. Inspect `VintageNet.info` to see that wifi is successfully connected
+4. Inspect `VintageNet.info` to see that WiFi is successfully connected
 5. You can also use `RingLogger.next` to find what the target ipaddress is
 6. Once you've identified the correct ipaddress you should be able to run `ssh ${ipaddress}`
-7. After compiling your firmware, you can run `upload.sh ${ipaddress}` to deploy your firmware update over the air
+7. After compiling your firmware, you can run `upload.sh ${ipaddress}` to deploy updates over the air
+
+Note: If you are configuring correct SSID and password to a WiFinetwork, but your device is failing to connect to it it may due to the type of WiFi network. It may be that the wifi network may be 5GHz and your device is only compatible with 2.4GHz. 
 
 ## Hardware Used
 - [Raspberry Pi Zero WH](https://www.adafruit.com/product/3708)
 - [Pi Traffic Light](https://lowvoltagelabs.com/products/pi-traffic/)
 - Micro SD Card, and adapter to read it on host
+- Micro USB cable that supports data transfer
 
 ## Debugging
 Run `RingLogger.next` to see what is being logged.
