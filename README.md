@@ -24,6 +24,9 @@ Kid friendly alarm clock resembling a traffic light.
 - [Pi Traffic Light](https://lowvoltagelabs.com/products/pi-traffic/)
 - Micro SD Card, and adapter to read it on host
 
+## Debugging
+Run `RingLogger.next` to see what is being logged.
+
 ## Todo:
 1. Add a HTTP API layer to allow controlling the lights from a web UI
 2. Can we avoid constantly checking time every few x seconds? Is there a way to increase performance by adding idle time?
