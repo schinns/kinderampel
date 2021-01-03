@@ -12,7 +12,7 @@ Kid friendly alarm clock resembling a traffic light.
 5. To create a bootable SD Card `mix burn`
 
 ## Over the air update
-The below steps are optional, however it will streamline development process significantly.
+The steps below are optional, however it will streamline development process significantly.
 1. Set environment variables `SSID` and `PSK` to configure WiFi connection
 2. Connect the raspberry pi zero via the gadget connection to the host
 3. Run `ssh nerves.local`
@@ -21,8 +21,8 @@ The below steps are optional, however it will streamline development process sig
 ```
 00:00:20.020 [debug] udhcpc(wlan0): udhcpc: lease of xxx.xxx.x.xxx obtained, lease time 7200
 ```
-6. Once you've identified the correct ipaddress you should be able to run `ssh ${ipaddress}`
-7. After compiling your firmware, you can run `upload.sh ${ipaddress}` to deploy updates over the air
+6. Once you've identified the correct ipaddress you should be able to run `ssh xxx.xxx.x.xxx`
+7. After compiling your firmware, you can run `upload.sh xxx.xxx.x.xxx` to deploy updates over the air
 
 Note: If you are configuring correct SSID and password to a WiFi network, but your device is failing to connect to it it may due to the type of WiFi network. It may be that the WiFi network may be 5GHz and your device is only compatible with 2.4GHz. 
 
