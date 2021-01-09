@@ -34,10 +34,10 @@ defmodule Kinderampel do
       {7, 30} -> green_on_and_yellow_off()
       # at 10:00 AM EST turn off green
       {15, 0} -> turn_off(@green)
-      # at 7:00 PM EST loop lights to indicate bed time
-      {24, 0} -> loop_lights(pins, 0)
-      # at 7:01 PM EST clean up
-      {24, 1} -> turn_off_all(pins, 1)
+      # at 6:45 PM EST loop lights to indicate bed time
+      {23, 45} -> loop_lights(pins, 45)
+      # at 6:46 PM EST clean up
+      {23, 46} -> turn_off_all(pins)
       _ -> Logger.debug("no match")
     end
     :timer.sleep(@check_interval)
