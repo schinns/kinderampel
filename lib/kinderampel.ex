@@ -11,10 +11,11 @@ defmodule Kinderampel do
   """
   require Logger
 
-  @check_interval 15000
+  @check_interval 5000
   @red 9
   @yellow 10
   @green 11
+  @pins [@red, @yellow, @green]
 
   def start(_type, _args) do
     spawn(fn -> check_time() end)
@@ -24,7 +25,6 @@ defmodule Kinderampel do
   defp check_time do
     Logger.debug "Checking time"
     t = Time.utc_now
-    pins = [@red, @yellow, @green]
     case {t.hour, t.minute} do
       # at 3:00 AM EST turn on red
       {8, 0} -> turn_on(@red)
@@ -35,9 +35,9 @@ defmodule Kinderampel do
       # at 10:00 AM EST turn off green
       {15, 0} -> turn_off(@green)
       # at 6:45 PM EST loop lights to indicate bed time
-      {23, 45} -> loop_lights(pins, 45)
+      {23, 45} -> loop_lights(@pins, 45)
       # at 6:46 PM EST clean up
-      {23, 46} -> turn_off_all(pins)
+      {23, 46} -> turn_off_all(@pins)
       _ -> Logger.debug("no match")
     end
     :timer.sleep(@check_interval)
