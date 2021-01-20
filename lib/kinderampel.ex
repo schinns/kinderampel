@@ -31,7 +31,7 @@ defmodule Kinderampel do
       # at 7:00 AM EST turn on yellow light
       {12, 0} -> yellow_on_and_red_off()
       # at 7:30 AM EST turn on green
-      {7, 30} -> green_on_and_yellow_off()
+      {12, 30} -> green_on_and_yellow_off()
       # at 10:00 AM EST turn off green
       {15, 0} -> turn_off(@green)
       # at 6:45 PM EST loop lights to indicate bed time
